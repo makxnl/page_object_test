@@ -7,7 +7,7 @@ class BookPage(BasePage):
     def add_book_to_basket(self):
         add_to_basket = self.browser.find_element(*BookPageLocators.ADD_TO_CART_BUTTON)
         add_to_basket.click()
-        
+
     def should_be_right_book_and_price(self):
         try:
             price = self.browser.find_element(*BookPageLocators.BOOK_PRICE)
