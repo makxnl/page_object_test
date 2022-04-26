@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from .locators import BookPageLocators
 
 
-class BookPage(BasePage):
+class ProductPage(BasePage):
     def add_book_to_basket(self):
         add_to_basket = self.browser.find_element(*BookPageLocators.ADD_TO_CART_BUTTON)
         add_to_basket.click()
@@ -23,3 +23,10 @@ class BookPage(BasePage):
         except:
             print("Wrong name!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*BookPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_is_disappeared(self):
+        assert self.is_disappeared(*BookPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared"
