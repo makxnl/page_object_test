@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from .locators import BookPageLocators
 
 
+
 class ProductPage(BasePage):
     def add_book_to_basket(self):
         add_to_basket = self.browser.find_element(*BookPageLocators.ADD_TO_CART_BUTTON)
